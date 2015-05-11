@@ -1,0 +1,44 @@
+<!-- 
+<h3>All Articles created</h3>
+
+<ul>
+<%= @articles.each do |article|%>
+<li><%=article.title%>: <%=article.text%></li>
+<%end%>
+</ul>
+
+ -->
+<h1>Listing articles</h1>
+ 
+<table>
+  <tr align=>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+  <% @articles.each do |article| %>
+    <tr align=left>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'show', article_path(article) %></td>
+      <td><%= link_to 'edit', edit_article_path(article) %></td>
+      <td><%= link_to 'delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>      
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'new', new_article_path %>
+<!-- 
+
+%h1
+%table
+  %tr
+    %th Title
+    %th Text
+    -@articles.each do |article|
+    %tr
+      %td = article.title
+      %td = article.text 
+      %td = link_to 'show', article_path(article)
+      %td = link_to 'edit', edit_article_path(article)
+      %td = link_to 'delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'new', new_article_path      
+ -->
