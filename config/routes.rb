@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  resources :users
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  scope controller: :auth do
+    get 'login'
+    get 'logout'
+    get 'register'
 
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
