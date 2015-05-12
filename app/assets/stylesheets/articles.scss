@@ -1,5 +1,38 @@
-table{
-	
-	
+.some {
+  
+  text-align: center;
 
+}
+
+.articleTitle {
+  font-size: 30px;
+}
+
+.articleText {
+  
+}
+
+.articleLinks {
+  align: right;
+}
+
+table, td,tr {
+
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+td {
+   width: 50px; 
+}
+
+.panel {
+  background-color: red;
+}
+
+.fitted {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 30%;
+  width: 60%;
 }

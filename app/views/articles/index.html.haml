@@ -1,13 +1,17 @@
-%h1 Listing articles
-%table
-  %tr{:align => ""}
-    %th Title
-    %th Text
-  - @articles.each do |article|
-    %tr{:align => "left"}
-      %td= article.title
-      %td= article.text
-      %td= link_to 'show', article_path(article)
-      %td= link_to 'edit', edit_article_path(article)
-      %td= link_to 'delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
-= link_to 'new', new_article_path
+.fitted
+  = link_to 'new', new_article_path
+  %h1{class: "some"} All Articles
+  %div{class: 'panel panel-default'}
+    -@articles.each do |article|
+      / %p{class: 'articleTitle '}= article.title
+      / %p{class: 'articleTitle'}= article.text
+      .panel-heading{class: 'articleTitle'}= article.title
+      .panel-body{class: 'articleText'}= article.text    
+      %table{class: 'articleLinks', align: 'right'}
+        %tr
+          %td= link_to 'show', article_path(article)
+          %td= link_to 'edit', edit_article_path(article)
+          %td= link_to 'delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+      %br
+      %br    
+

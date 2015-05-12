@@ -12,3 +12,6 @@
 			%td=user.username
 			%td=user.email
 			%td=user.password
+			%td=link_to 'delete user', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
+
+=link_to 'home', root_path	

@@ -9,9 +9,9 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		@user = Article.find(params[:id])
+		@user = User.find(params[:id])
 		@user.destroy
-		redirect_to articles_path	end
+		redirect_to users_path end
 
 	def new
 		puts 'user new'
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
 	def create
 		#validation-> only if it doesnt exist, create the user 
-
 		puts "______________________________"
 		puts 'create new user'
 		@user = User.new(user_params)
@@ -33,33 +32,9 @@ class UsersController < ApplicationController
 		else
 			render 'new'
 		end	
-		# @anotherUser = User.all
-		# @anotherUser.each do |current|
-		# 	puts current.email
-		# 	puts current.password
-		# 	puts current.username
-		# end
-		# render 'index'
-		# if @anotherUser == nil
-		# 	puts "SAVING!!"
-		# 	@user.save
-		# else
-		# 	puts "NOT SAVING"
-		# end
-		# puts "+++++++++++"		
-		# puts @user.username
-		# puts "+++++++++++"
-		# puts @anotherUser			
-		# puts "+++++++++++"		
-		# redirect_to articles_path
-		# if(@user.save)
-		# 	redirect_to articles_path
-		# 	@user.save
-		# else
-		# 	render 'new'
 	end
-	 private
 
+	 private
 	  def user_params
 	    params.require(:user).permit(:email, :password, :username, :password_confirmation)
 	  end

@@ -1,3 +1,38 @@
-// Place all the styles related to the Auth controller here.
+/*// Place all the styles related to the Auth controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+.center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+	height: 30%;
+  width: 30%;
+  border-radius: 25px;
+}
+
+.formHeader {
+  background-color: #ADC2FF;
+  padding: 10px;
+  border-radius: 25px;
+  border: 5px solid blue;
+  margin: 0;
+}
+
+.formItem {
+  color: black;
+  text-align: left;
+}
+
+.formHeaderText {
+  text-align: center;
+  font-size: 32px;
+}
+
+.submitButton{
+  text-align: center;
+
+  width: 300px;
+  /*background-color: */
+}
+

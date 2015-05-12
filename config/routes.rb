@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'login'
     get 'logout'
     get 'register'
+    post 'authenticate'
 
   end
   # Example of regular route:
