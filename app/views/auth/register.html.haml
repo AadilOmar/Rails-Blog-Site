@@ -1,20 +1,17 @@
 .center
   .formHeader
-    %p Register
-  = form_for :user, url: users_path do |f|
-    %p
-      = f.label :username
-      %br/
-      = f.text_field :username	
-    %p
-      = f.label :password
-      %br/
-      = f.text_field :password
-    %p
-      = f.label :email
-      %br/
-      = f.text_field :email    
-    %p
-      = f.submit
+    %p{class: "formHeaderText"} Register 
+    = form_for :user, url: users_path do |f|
+      .formItem
+        %p
+          = f.label :username
+          %br/
+          = f.text_field :username            
+        %p
+          = f.label :password
+          %br/
+          = f.password_field :password                  
+        .submit{class: "submitButton"} 
+          = f.submit 
 
-  = link_to 'back', root_path        
+  = link_to 'back', root_path, class: 'btn btn-primary'        

@@ -1,12 +1,12 @@
 .center
   .formHeader
     %p{class: "formHeaderText"} Login 
-    = form_for :user, url: authenticate_path("asdf") do |f|
+    = form_for @user, url: authenticate_path do |f|
       .formItem
         %p
           = f.label :username
           %br/
-          = f.text_field :username
+          = f.text_field :username  
         %p
           = f.label :password
           %br/

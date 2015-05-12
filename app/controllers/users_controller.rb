@@ -18,13 +18,16 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def login
+		@user = User.new
+	end
+
 	def create
 		#validation-> only if it doesnt exist, create the user 
 		puts "______________________________"
 		puts 'create new user'
 		@user = User.new(user_params)
 		puts @user.username
-		puts @user.email
 		puts @user.password
 		if(@user.save)
 			puts "SAVING"
@@ -36,7 +39,7 @@ class UsersController < ApplicationController
 
 	 private
 	  def user_params
-	    params.require(:user).permit(:email, :password, :username, :password_confirmation)
+	    params.require(:user).permit(:password, :username, :password_confirmation)
 	  end
 
 end
