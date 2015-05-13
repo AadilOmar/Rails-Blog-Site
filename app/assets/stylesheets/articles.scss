@@ -1,3 +1,7 @@
+.alignRight{
+    text-align: right;
+}
+
 .some {
   text-align: center;
 
@@ -16,10 +20,10 @@
 }
 
 table, td,tr {
-
-    border-collapse: separate;
-    border-spacing: 10px;
+  border-collapse: separate;
+   border-spacing: 10px;
 }
+
 td {
    width: 50px; 
 }

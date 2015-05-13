@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
 
+
 	def create
 		puts 'creating auth'
 	end
@@ -22,25 +23,21 @@ class AuthController < ApplicationController
 		@user = User.new(auth_params)
 		puts @user.password
 		puts @user.username
-
 		puts @username
 		puts @password
 		User.all.each do |current|
 			puts current.username
+			#better way of doing this...
 			if current.username == @user.username and current.password == @user.password
-				puts "found user. Logging in"
-				redirect_to articles_path
+				puts "++++++"
+				puts current.id
+				redirect_to user_articles_path(current.id)
 				return
 			end
 		end
-		# if @users.include?(@user)
-		# 	puts 'login successful'
-		# else
-		# 	puts 'incorrect login'
 		puts "username not found. Try again"		
 		redirect_to login_path
 
-		# end
 	end
 
 	private 

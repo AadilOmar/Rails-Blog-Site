@@ -31,9 +31,9 @@ class UsersController < ApplicationController
 		puts @user.password
 		if(@user.save)
 			puts "SAVING"
-			redirect_to articles_path
+			redirect_to user_articles_path(@user)
 		else
-			render 'new'
+			redirect_to register_path	
 		end	
 	end
 
