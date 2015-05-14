@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		
+
 	end
 
 	def destroy
@@ -36,6 +36,10 @@ class UsersController < ApplicationController
 		else
 			redirect_to register_path	
 		end	
+	end
+
+	def addFriend
+		
 	end
 
 	 private

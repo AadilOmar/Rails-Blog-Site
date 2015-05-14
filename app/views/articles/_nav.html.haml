@@ -6,15 +6,14 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#"} Brand
+      %a.navbar-brand{:href => user_articles_path(@user)} Blog
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          %a{:href => "#"}
-            Link
-            %span.sr-only (current)
+          = link_to 'Friends', user_friends_path(params[:user_id])
+          %span.sr-only (current)
         %li
-          %a{:href => "#"} Link
+          =link_to 'Feed', user_article_feed_path(@user.id, "id")
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Dropdown

@@ -1,0 +1,7 @@
+=form_for @friend, url: user_friends_path do |f|
+  %p
+    = f.label :username
+    %br/
+    = f.text_field :username
+  = f.submit
+= link_to 'Back', user_articles_path(@user) 

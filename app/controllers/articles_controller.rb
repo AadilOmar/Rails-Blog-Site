@@ -23,6 +23,21 @@ class ArticlesController < ApplicationController
 		@article = @user.articles.find(params[:id])
 	end	
 
+	def feed
+		@user = User.find(params[:user_id])		
+		@articles = Array.new
+		@friendIds = @user.getAllFriends()
+		puts "+++++++++"
+		@friendIds.each do |id|
+			User.find(id).articles.each do |article|
+				@articles<<article
+			end
+		end
+		puts @articles
+		puts "1111111111111111111"
+		render 'index'
+	end
+
 	def index
 		puts 'in index......'
 		@user = User.find(params[:user_id])
@@ -53,7 +68,9 @@ class ArticlesController < ApplicationController
 		puts params
 		@user = User.find(params[:user_id])
 		@article = @user.articles.create(article_params)
+		@article.datePosted = Time.now
 		if @article.save
+			# @article.date = Date.today()		
 			redirect_to user_article_path(@user, @article)
 		else
 			render 'new'

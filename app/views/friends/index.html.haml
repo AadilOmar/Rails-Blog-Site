@@ -1,0 +1,10 @@
+%h3 ALL FRIENDS
+=link_to 'new', new_user_friend_path(@user)
+%table 
+-@friends.each do |friend|
+  %tr
+    %td= friend.username
+    %td= link_to 'delete', user_friend_path(@user.id, friend.id), method: :delete
+  %br
+  
+= link_to 'back', user_articles_path(@user)
