@@ -23,7 +23,10 @@ class AuthController < ApplicationController
 		@user = User.new(auth_params)
 		puts @user.password
 		puts @user.username
+		puts @user.email
+		puts "________________-------"
 		puts @username
+
 		puts @password
 		User.all.each do |current|
 			puts current.username
@@ -42,7 +45,7 @@ class AuthController < ApplicationController
 
 	private 
 		def auth_params
-			params.require(:user).permit(:username, :password)
+			params.require(:user).permit(:username, :password, :email)
 		end
 
 end

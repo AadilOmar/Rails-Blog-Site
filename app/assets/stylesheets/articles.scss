@@ -1,10 +1,20 @@
 .alignRight{
     text-align: right;
+    align: right;
+    padding:200px;
+    display: block;
+}
+
+#alignLeft {
+    color: red;
+    text-align: left;
+    align: left;    
 }
 
 .some {
   text-align: center;
-
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .articleTitle {
@@ -17,22 +27,43 @@
 
 .articleLinks {
   align: right;
+  text-align: right;
 }
 
 table, td,tr {
+  padding: 30px;
   border-collapse: separate;
-   border-spacing: 10px;
+  border-spacing: 10px 50px;
 }
 
 td {
+   padding: 40px;
    width: 50px; 
 }
-
 
 .fitted {
   margin: auto;
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 35px; left: 0; right: 0;
   height: 30%;
   width: 60%;
+}
+.plok {
+    color:red;
+    padding: 30px;
+    margin: 50px;
+  
+}
+
+.sidebarTable {
+  background-color: blue;
+  color: blue;
+
+}
+.sidebar {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  height: 30%;
+  width: 40%;
 }

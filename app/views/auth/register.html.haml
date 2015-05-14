@@ -4,9 +4,13 @@
     = form_for :user, url: users_path do |f|
       .formItem
         %p
+          = f.label :name
+          %br/
+          = f.text_field :name
+        %p
           = f.label :username
           %br/
-          = f.text_field :username            
+          = f.text_field :username
         %p
           = f.label :password
           %br/
