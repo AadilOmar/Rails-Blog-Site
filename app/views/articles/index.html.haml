@@ -5,7 +5,10 @@
 .fitted
   / = link_to 'logout', root_path
   / = link_to 'new', new_user_article_path(@user)
-  %h1{class: "some"} All Articles for #{@user.username}
+  -if @feed
+    %h1{class: "some"} Article Feed
+  -else  
+    %h1{class: "some"} Your Articles
   %td{class: 'alignRight'}= link_to 'new', new_user_article_path(@user)  
   %td{class: 'alignRight'}= link_to 'home(for testing)', root_path  
 
@@ -16,8 +19,10 @@
       %table{class: 'articleLinks', align: 'right'}
         %tr{align: 'right'}
           %td= link_to 'show', user_article_path(@user.id, article.id)
-          %td= link_to 'edit', edit_user_article_path(@user.id, article.id)
-          %td= link_to 'delete', user_article_path(@user.id, article.id), method: :delete, data: { confirm: 'Are you sure?' }
+          -if article.user.id.to_s == session[:user_id]
+            %td= link_to 'edit', edit_user_article_path(@user.id, article.id)
+            %td= link_to 'delete', user_article_path(@user.id, article.id), method: :delete, data: { confirm: 'Are you sure?' }
+
       %br 
       %br    
 

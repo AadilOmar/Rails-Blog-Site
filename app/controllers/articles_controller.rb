@@ -11,20 +11,25 @@ class ArticlesController < ApplicationController
 
 	def show
 		puts "in show"
-		puts params[:user_id]
 		puts "ASDF"
-		@user = User.find(params[:user_id])
-		@article = @user.articles.find(params[:id])
+		#find 
+		@user = User.find(session[:user_id])
+		@article = Article.find(params[:id])
+		# User.find_by(username: ) 
+		puts @article
+		puts "!!!!!!!!!!!"
+		# @article = @user.articles.find(params[:id])
 	end	
 
 	def edit
 		puts 'in edit'	
-		@user = User.find(params[:user_id])
-		@article = @user.articles.find(params[:id])
+		@user = User.find(session[:user_id])
+		@article = Article.find(params[:id])
 	end	
 
 	def feed
-		@user = User.find(params[:user_id])		
+		@feed = true
+		@user = User.find(session[:user_id])		
 		@articles = Array.new
 		@friendIds = @user.getAllFriends()
 		puts "+++++++++"
@@ -40,14 +45,18 @@ class ArticlesController < ApplicationController
 
 	def index
 		puts 'in index......'
-		@user = User.find(params[:user_id])
+		puts session[:user_id]
+		puts session[:username]		
+		puts session[:password]				
+		puts ">>>>>>>>>>>>"
+		@user = User.find(session[:user_id])
 		puts @user.id
 		@articles = @user.articles.all.reverse
 	end
 
 	def destroy
 		puts 'in destroy'
-		@user = User.find(params[:user_id])
+		@user = User.find(session[:user_id])
 		@article = @user.articles.find(params[:id])
 		@article.destroy
 		redirect_to user_articles_path(@user.id)
@@ -66,7 +75,7 @@ class ArticlesController < ApplicationController
 	def create
 		puts 'in create'
 		puts params
-		@user = User.find(params[:user_id])
+		@user = User.find(session[:user_id])
 		@article = @user.articles.create(article_params)
 		@article.datePosted = Time.now
 		if @article.save
