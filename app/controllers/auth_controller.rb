@@ -34,6 +34,12 @@ class AuthController < ApplicationController
 			if current.username == @user.username and current.password == @user.password
 				puts "++++++"
 				puts current.id
+				# session[:user_id] = current.id
+				# puts "okok"
+				# puts session[:user_id] 
+				# reset session
+				# puts session[:user_id]
+				
 				redirect_to user_articles_path(current.id)
 				return
 			end

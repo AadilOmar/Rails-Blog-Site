@@ -1,6 +1,7 @@
 .center
   .formHeader
     %p{class: "formHeaderText"} Login 
+    /session_login_path routes to session#create
     = form_for :session, url: session_login_path do |f|
       .formItem
         %p

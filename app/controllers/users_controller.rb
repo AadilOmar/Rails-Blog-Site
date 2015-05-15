@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
+		@sessionUserName = session[:username]
 		puts "AT THE user INDEX"
 	end
 

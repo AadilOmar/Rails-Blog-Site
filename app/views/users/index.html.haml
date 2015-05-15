@@ -1,14 +1,20 @@
 %p in users/index
 
 %table
-	%tr 
-		%td= 'id' 
-		%td='username'
-		%td='password'
+	%tr 		
+		%td
+			%strong= @sessionUserName  
+		%td  id
+		%td username
+		%td password
 	-@users.each do |user|
 		%tr 
 			%td=user.id
-			%td=user.username
+			-if @sessionUserName==user.username
+				%td
+					%strong=user.username
+			-else
+				%td=user.username
 			%td=user.password
 			%td=link_to 'delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
 

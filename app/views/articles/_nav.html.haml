@@ -36,4 +36,4 @@
           %input.form-control{:placeholder => "Search", :type => "text"}
         %button.btn.btn-default{:type => "submit"} Submit
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to 'logout', root_path
+        %li= link_to 'logout', session_logout_path, method: :delete
